@@ -18,6 +18,8 @@ public class Class_Scanner_7_1_1 {
             System.out.print("belum ");
         }
         System.out.print("menikah");
+
+        scanner.close(); // Menutup Scanner setelah selesai digunakan
     }
 
     public static String inputName(Scanner scanner) {
