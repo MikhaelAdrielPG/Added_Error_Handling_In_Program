@@ -3,20 +3,26 @@ import java.util.InputMismatchException;
 
 public class Class_Scanner_7_1_1 {
     public static void main(String[] args) {
-        /*
-        * Metode nextLine() di java sering digunakan untuk membaca input dari pengguna saat pengguna harus dapat memasukkan lebih dari satu kata.
-        *  Misalnya, jika Anda ingin meminta pengguna untuk memasukkan alamat mereka,
-        *  Anda dapat menggunakan metode nextLine() untuk membaca input dari pengguna baris demi baris.
-        * */
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Masukkan nama Anda : ");
         String name = scanner.nextLine(); // Membaca baris teks dari input pengguna
 
-        int age = 0; // Inisialisasi umur dengan nilai default 0
-        boolean isMarried = false; // Inisialisasi isMarried dengan nilai default false
+        int age = 0; // Inisialisasi umur dengan nilai default
+        boolean isMarried = false; // Inisialisasi isMarried dengan nilai default
 
-
+        // Error handling untuk input umur
+        while (true) {
+            try {
+                System.out.println("Masukkan umur Anda : ");
+                age = scanner.nextInt(); // Membaca nilai integer dari input pengguna
+                break; // Keluar dari loop jika input umur valid
+            } catch (InputMismatchException e) {
+                // Jika terjadi InputMismatchException pada input umur, tangkap dan cetak pesan kesalahan
+                System.out.println("Input yang Anda berikan bukan angka. Coba lagi.");
+                scanner.nextLine(); // Membaca karakter newline yang tersisa
+            }
+        }
 
         // Error handling untuk input isMarried
         while (true) {
@@ -39,5 +45,6 @@ public class Class_Scanner_7_1_1 {
         } else {
             System.out.println("belum ");
         }
+
     }
 }
